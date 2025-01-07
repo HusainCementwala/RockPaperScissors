@@ -18,7 +18,28 @@ ties:0
 
 }
 */
+let isAutoPlaying = false;
+let intervalId;
 
+function autoPlay(){
+if(!isAutoPlaying){
+  
+intervalId = setInterval(function(){ //save the intervalId in a variable
+
+  const playerMove = pickCompMove();
+  playGame(playerMove);
+
+  },1000);
+isAutoPlaying = true;
+}
+else{
+
+clearInterval(intervalId); //call on the saved Id to stop autoplay
+isAutoPlaying = false;
+
+}
+
+}
 
 
 function playGame(playerMove){
