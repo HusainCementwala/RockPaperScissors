@@ -1,6 +1,9 @@
-
-
 let score = JSON.parse(localStorage.getItem('score')) || { wins:0, losses:0, ties:0};
+
+
+
+
+
 
 
 updateScoreElement();
@@ -18,10 +21,16 @@ ties:0
 
 }
 */
+
+//here also using eventListener instead of onclick
+document.querySelector('.js-autoplay-button').addEventListener('click',
+  ()=>{
+    autoPlay();
+  }
+);
+
 let isAutoPlaying = false;
 let intervalId;
-
-
 
 function autoPlay(){
 if(!isAutoPlaying){
@@ -33,13 +42,41 @@ intervalId = setInterval(() =>{ //save the intervalId in a variable
 isAutoPlaying = true;
 }
 else{
-
 clearInterval(intervalId); //call on the saved Id to stop autoplay
 isAutoPlaying = false;
-
+}
 }
 
+
+
+
+//using event Listener to atribute ONkeydown event for allowing to click any key to run the code
+document.body.addEventListener('keydown',(event)=>{
+if(event.key === 'r' || event.key === 'R'){ //using r key to choose rock
+  playGame('rock');
 }
+else if(event.key === 'p' || event.key === 'P'){
+  playGame('paper');
+}
+else if(event.key === 's' || event.key === 'S'){
+  playGame('scissors');
+}
+});
+
+
+
+//these are using eventListeners instead of onclick functioning
+document.querySelector('.js-rock-button').addEventListener('click',()=>{
+  playGame('rock');
+});
+
+document.querySelector('.js-paper-button').addEventListener('click',()=>{
+  playGame('paper');
+});
+
+document.querySelector('.js-scissors-button').addEventListener('click',()=>{
+  playGame('scissors');
+});
 
 
 function playGame(playerMove){
@@ -138,6 +175,15 @@ document.querySelector('.js-moves')
 updateScoreElement();
 
 }
+
+//here also using eventListener instead of onclick
+document.querySelector('.js-reset-button').addEventListener('click',()=>{
+  score.wins = 0;
+  score.losses =0;
+  score.ties =0;
+  localStorage.removeItem('score');
+  updateScoreElement();
+});
 
 
 function updateScoreElement(){

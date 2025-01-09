@@ -13,25 +13,19 @@
   <h1>ROCK PAPER SCISSORS</h1>
 
 <button
-onclick="
-playGame('rock');
-" class="move-button">
+ class="move-button js-rock-button">
 <img src="images\rock-emoji.png"
 class="move-icon">
 </button>
 
 <!----------------------------------------------------------------------------------------------------->
 <button
-onclick="
-playGame('paper');
-" class="move-button">
+class="move-button js-paper-button">
 <img src="images\paper-emoji.png" class="move-icon">
 </button>
 <!--------------------------------------------------------------------------------------------------------------------------------------->
 <button
-onclick="
-playGame('scissors');
-" class="move-button">
+class="move-button js-scissors-button">
 <img src="images\scissors-emoji.png" class="move-icon">
 </button>
 
@@ -43,18 +37,11 @@ playGame('scissors');
 
 
 <button 
-onclick="
-score.wins = 0;
-score.losses =0;
-score.ties =0;
-localStorage.removeItem('score');
-updateScoreElement();
-" class="reset-button">RESET SCORE</button>
+class="reset-button js-reset-button">RESET SCORE</button>
 
 
 
-<button class="reset-button"
-onclick="autoPlay();">AUTO PLAY</button>
+<button class="reset-button js-autoplay-button">AUTO PLAY</button>
 
 </div>
 
