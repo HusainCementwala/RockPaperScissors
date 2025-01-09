@@ -21,14 +21,14 @@ ties:0
 let isAutoPlaying = false;
 let intervalId;
 
+
+
 function autoPlay(){
 if(!isAutoPlaying){
   
-intervalId = setInterval(function(){ //save the intervalId in a variable
-
+intervalId = setInterval(() =>{ //save the intervalId in a variable
   const playerMove = pickCompMove();
   playGame(playerMove);
-
   },1000);
 isAutoPlaying = true;
 }
