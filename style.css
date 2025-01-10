@@ -99,3 +99,15 @@ body{
   color: rgb(255, 255, 255);
   transition: 0.1s;
 }
+
+
+.reset-confirm-button{
+
+  background-color: white;
+  border: none;
+  font-size: 15px;
+  padding: 8px 15px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
